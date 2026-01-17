@@ -75,6 +75,39 @@ const Navbar = ({ cartCount = 0, toggleCart }) => {
       </div>
 
       {/* Mobile Menu Overlay */}
+      {isMenuOpen && (
+        <div className={`mobile-menu ${isMenuOpen ? 'open' : ''}`}>
+          <ul className="mobile-nav-links">
+            <li>
+              <Link
+                to="/about"
+                className={isActive('/about') ? 'active' : ''}
+                onClick={closeMenu}
+              >
+                About us
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/shop"
+                className={isActive('/shop') ? 'active' : ''}
+                onClick={closeMenu}
+              >
+                Shop
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/contact"
+                className={isActive('/contact') ? 'active' : ''}
+                onClick={closeMenu}
+              >
+                Contact
+              </Link>
+            </li>
+          </ul>
+        </div>
+      )}
     </nav>
   );
 };
