@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaFacebookF, FaInstagram, FaWhatsapp, FaEnvelope } from 'react-icons/fa';
-import './Footer.css';
+import './footer.css';
 
 const Footer = () => {
   // REPLACE THESE WITH YOUR ACTUAL LINKS

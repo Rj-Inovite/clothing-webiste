@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import './About.css';
+import './about.css';
 import mama from '../assets/images/mama.jpg';
 
 // Animation Variants for cleaner code

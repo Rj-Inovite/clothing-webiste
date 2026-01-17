@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './Shop.css';
+import './shop.css';
 
 // --- DATA GENERATION ---
 const categoryImages = {
