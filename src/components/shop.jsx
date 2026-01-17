@@ -1,5 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import './shop.css';
+import  '../assets/images/1.png';
+import '../assets/images/2.png';
+import '../assets/images/3.png';
+import '../assets/images/4.png';
+import  '../assets/images/5.png';
+import  '../assets/images/6.png';
+import '../assets/images/7.png';
+import  '../assets/images/8.png';
+import '../assets/images/9.png';
+import  '../assets/images/10.png';
+import '../assets/images/12.png';
+import '../assets/images/13.png';
+import '../assets/images/14.png';
+import  '../assets/images/15.png';
+import '../assets/images/16.png';
+import '../assets/images/17.png';
+import '../assets/images/18.png';
+import '../assets/images/19.png';
+
 
 // --- DATA GENERATION ---
 const categoryImages = {
