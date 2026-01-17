@@ -1,0 +1,2 @@
+- [x] Update navbar.css for mobile responsiveness: hide nav-middle, show hamburger, reduce padding, adjust font sizes
+- [x] Test the app on mobile view to verify responsiveness

@@ -1,0 +1,344 @@
+/* Color Variables */
+:root {
+  --primary-maroon: #800000;
+  --secondary-maroon: #5a0000;
+  --bg-light: #FFF8E7; 
+  --text-dark: #333333;
+  --text-light: #ffffff;
+  --gold-accent: #D4AF37;
+}
+
+body {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+}
+
+.about-container {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* --- Hero Section --- */
+.about-hero {
+  /* Dynamic gradient background */
+  background: linear-gradient(135deg, var(--primary-maroon) 0%, var(--secondary-maroon) 100%);
+  height: 60vh; /* Taller banner */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle pattern overlay */
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: radial-gradient(#D4AF37 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.1;
+}
+
+.hero-content {
+  z-index: 2;
+  color: var(--text-light);
+}
+
+.hero-content h1 {
+  font-size: 5rem;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-content .tagline {
+  font-size: 1.8rem;
+  font-family: 'Lato', sans-serif;
+  font-style: italic;
+  margin-top: 15px;
+  color: #f1f1f1;
+}
+
+.divider {
+  height: 4px;
+  background-color: var(--gold-accent);
+  margin: 25px auto 0;
+  border-radius: 2px;
+}
+
+/* --- General Sections --- */
+.section-container {
+  max-width: 1400px;
+  margin: 80px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+h2 {
+  color: var(--primary-maroon);
+  font-size: 2.8rem;
+  margin-bottom: 30px;
+  position: relative;
+  display: inline-block;
+}
+
+/* Decorative underline for H2 */
+h2::after {
+  content: '';
+  display: block;
+  width: 60%;
+  height: 3px;
+  background: var(--gold-accent);
+  margin: 10px auto 0;
+}
+
+p {
+  font-family: 'Lato', sans-serif;
+  line-height: 1.9;
+  font-size: 1.15rem;
+  color: #555;
+}
+
+/* --- Split Section --- */
+.split-section {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.text-block {
+  flex: 1;
+  min-width: 300px;
+  padding: 30px;
+  background: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border-radius: 12px;
+  border-top: 6px solid var(--primary-maroon);
+}
+
+/* --- Owner Section --- */
+.owner-section {
+  background-color: var(--primary-maroon);
+  padding: 100px 20px;
+  color: var(--text-light);
+  margin: 80px 0;
+  position: relative;
+}
+
+.owner-card {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.owner-image-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.owner-img {
+  width: 320px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 4px solid var(--gold-accent);
+  box-shadow: 15px 15px 0px rgba(0,0,0,0.25);
+}
+
+.owner-details {
+  flex: 1.5;
+  text-align: left;
+}
+
+.owner-details h3 {
+  color: var(--gold-accent);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.owner-details h2 {
+  color: var(--text-light);
+  font-size: 3.5rem;
+  margin-top: 0;
+}
+.owner-details h2::after { content: none; } /* Remove generic underline */
+
+.owner-details .owner-bio {
+  color: #e0e0e0;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+/* --- Testimonials --- */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.testimonial-card {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  position: relative;
+  border-bottom: 4px solid var(--gold-accent);
+  cursor: pointer;
+}
+
+.testimonial-card h4 {
+  color: var(--primary-maroon);
+  margin-top: 20px;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .section-container {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 30px;
+  }
+  .hero-content h1 {
+    font-size: 4rem;
+  }
+  .owner-card {
+    max-width: 900px;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 992px) {
+  .section-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 0 25px;
+  }
+  .hero-content h1 {
+    font-size: 3.5rem;
+  }
+  .hero-content .tagline {
+    font-size: 1.5rem;
+  }
+  .owner-card {
+    max-width: 700px;
+    gap: 30px;
+  }
+  .owner-img {
+    width: 280px;
+    height: 350px;
+  }
+  .owner-details h2 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    height: 50vh;
+  }
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+  .hero-content .tagline {
+    font-size: 1.3rem;
+  }
+  .section-container {
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+  h2 {
+    font-size: 2.2rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+  .split-section {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .text-block {
+    padding: 20px;
+  }
+  .owner-section {
+    padding: 60px 20px;
+  }
+  .owner-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+  .owner-details {
+    text-align: center;
+  }
+  .owner-img {
+    width: 250px;
+    height: 300px;
+  }
+  .owner-details h2 {
+    font-size: 2.5rem;
+  }
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .testimonial-card {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-hero {
+    height: 40vh;
+  }
+  .hero-content h1 {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+  }
+  .hero-content .tagline {
+    font-size: 1.1rem;
+  }
+  .section-container {
+    margin: 30px auto;
+    padding: 0 15px;
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+  p {
+    font-size: 0.95rem;
+  }
+  .text-block {
+    padding: 15px;
+    min-width: 250px;
+  }
+  .owner-section {
+    padding: 40px 15px;
+  }
+  .owner-img {
+    width: 200px;
+    height: 250px;
+  }
+  .owner-details h2 {
+    font-size: 2rem;
+  }
+  .owner-details .owner-bio {
+    font-size: 1rem;
+  }
+  .testimonial-card {
+    padding: 20px 15px;
+  }
+}

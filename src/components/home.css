@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
+
+:root {
+  --maroon: #2b0404;
+  --gold: #d4af37;
+  --gold-light: #f3e5ab;
+  --creme: #fdfbf7;
+  --white: #ffffff;
+}
+
+body {
+  margin: 0; padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--creme);
+  overflow-x: hidden;
+}
+
+.home-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* --- HERO SLIDER (Same as before) --- */
+.hero-section {
+  position: relative; width: 100%; height: 85vh;
+  overflow: hidden; background: var(--maroon);
+}
+.hero-slide {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background-size: cover; background-position: center;
+  opacity: 0; transition: opacity 1s ease-in-out;
+  display: flex; align-items: center; justify-content: center;
+}
+.hero-slide.active { opacity: 1; }
+.hero-slide::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(43, 4, 4, 0.4);
+}
+.hero-overlay {
+  position: relative; z-index: 2; text-align: center;
+  animation: slideUp 1.2s ease-out;
+}
+.hero-title {
+  font-family: 'Cinzel', serif; font-size: 4rem; color: var(--gold);
+  text-shadow: 0 4px 10px rgba(0,0,0,0.5); margin-bottom: 20px; letter-spacing: 3px;
+}
+.hero-btn {
+  padding: 12px 35px; background: transparent; border: 2px solid var(--gold);
+  color: var(--white); font-size: 1rem; text-transform: uppercase;
+  cursor: pointer; transition: 0.3s; letter-spacing: 2px;
+}
+.hero-btn:hover { background: var(--gold); color: var(--maroon); }
+.slider-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(0,0,0,0.5); color: var(--gold); border: 1px solid var(--gold);
+  width: 40px; height: 40px; border-radius: 50%; cursor: pointer; z-index: 10;
+  font-size: 1.2rem; transition: 0.3s;
+}
+.slider-btn:hover { background: var(--gold); color: var(--maroon); }
+.slider-btn.left { left: 20px; }
+.slider-btn.right { right: 20px; }
+.slider-dots {
+  position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 10px; z-index: 10;
+}
+.dot { width: 10px; height: 10px; background: rgba(255,255,255,0.5); border-radius: 50%; cursor: pointer; }
+.dot.active { background: var(--gold); }
+
+/* --- FANTASTIC FINDS (Updated Fonts) --- */
+.finds-section { padding: 80px 40px; background-color: var(--creme); text-align: center; }
+.modern-title {
+  font-family: 'Playfair Display', serif; /* New Modern Font */
+  font-size: 3.5rem; /* Bigger Size */
+  color: var(--maroon);
+  font-weight: 700;
+  margin-bottom: 5px;
+  font-style: italic; /* Modern Touch */
+}
+.underline-gold { width: 80px; height: 3px; background: var(--gold); margin: 0 auto 15px; }
+.modern-subtitle { font-size: 1.2rem; color: #555; letter-spacing: 1px; }
+
+.finds-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px; margin-top: 50px;
+}
+.finds-card { position: relative; cursor: pointer; }
+.rect-shape {
+  width: 100%; height: 450px; position: relative; overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 4px;
+}
+.rect-shape img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.finds-card:hover .rect-shape img { transform: scale(1.1); }
+.finds-overlay {
+  position: absolute; bottom: 0; left: 0; width: 100%;
+  background: linear-gradient(to top, var(--maroon), transparent);
+  padding: 30px 0; opacity: 0; transform: translateY(20px);
+  transition: all 0.4s ease; display: flex; flex-direction: column; align-items: center;
+}
+.finds-card:hover .finds-overlay { opacity: 1; transform: translateY(0); }
+.finds-overlay h3 { color: var(--gold); font-family: 'Cinzel', serif; margin-bottom: 10px; }
+.finds-overlay button {
+  background: transparent; border: 1px solid var(--white); color: var(--white);
+  padding: 5px 15px; text-transform: uppercase; font-size: 0.8rem; cursor: pointer;
+}
+.finds-overlay button:hover { background: var(--gold); border-color: var(--gold); color: var(--maroon); }
+
+.shop-now-btn {
+  background: var(--gold);
+  border: 2px solid var(--gold);
+  color: var(--maroon);
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.shop-now-btn:hover {
+  background: var(--maroon);
+  border-color: var(--gold);
+  color: var(--gold);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+  transform: translateY(-2px);
+}
+
+/* --- WEAVING DREAMS (Slideshow) --- */
+.dreams-section { padding: 100px 50px; background: var(--maroon); color: var(--white); }
+.dreams-content { display: flex; align-items: center; justify-content: space-between; gap: 60px; max-width: 1200px; margin: 0 auto; }
+.dreams-text { flex: 1; text-align: left; }
+.dreams-text h2 { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--gold); margin-bottom: 20px; }
+.dreams-text p { font-size: 1.1rem; line-height: 1.8; color: #ddd; }
+.dreams-slider { flex: 1; position: relative; height: 400px; overflow: hidden; border-radius: 8px; }
+.dream-img {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;
+  opacity: 0; transition: opacity 1s ease-in-out;
+}
+.dream-img.active { opacity: 1; }
+.gold-frame-slider {
+  position: absolute; top: 15px; left: 15px; width: calc(100% - 30px); height: calc(100% - 30px);
+  border: 2px solid var(--gold); pointer-events: none; z-index: 2;
+}
+
+/* --- YOU x US SECTION --- */
+.you-us-section { padding: 80px 40px; background: var(--creme); }
+.you-us-header { text-align: center; max-width: 900px; margin: 0 auto 60px; }
+.you-us-header h2 { font-family: 'Cinzel', serif; font-size: 3rem; color: var(--maroon); }
+.you-us-intro { font-size: 1.1rem; color: #444; margin-top: 15px; line-height: 1.6; }
+
+.testimonials-container { display: flex; flex-direction: column; gap: 80px; max-width: 1100px; margin: 0 auto; }
+.testimonial-card { display: flex; align-items: center; gap: 50px; opacity: 0; animation: fadeUp 1s ease forwards; }
+
+.left-layout { flex-direction: row; }
+.right-layout { flex-direction: row-reverse; }
+
+.testimonial-image { position: relative; width: 300px; height: 400px; flex-shrink: 0; }
+.testimonial-image img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; z-index: 2; position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+.image-border {
+  position: absolute; top: 20px; left: 20px; width: 100%; height: 100%;
+  border: 2px solid var(--gold); z-index: 1;
+}
+/* Adjust border for right layout */
+.right-layout .image-border { left: -20px; }
+
+.testimonial-text { flex: 1; }
+.testimonial-text h3 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--maroon); margin: 0; }
+.location { display: block; color: #777; font-size: 0.9rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+.quote-box {
+  background: white; padding: 25px; border-left: 4px solid var(--gold);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05); font-style: italic; color: #555;
+  font-size: 1.1rem; line-height: 1.6;
+}
+.feeling-tag { margin-top: 15px; font-weight: 600; color: var(--maroon); }
+.feeling-tag span { color: var(--gold); font-family: 'Playfair Display', serif; font-size: 1.1rem; }
+
+/* --- SCROLLING MARQUEE (Same) --- */
+.marquee-wrapper {
+  background: var(--gold); color: var(--maroon); padding: 15px 0; overflow: hidden;
+  white-space: nowrap; border-top: 2px solid var(--maroon); border-bottom: 2px solid var(--maroon);
+}
+.marquee-content { display: inline-block; animation: scrollText 20s linear infinite; }
+.marquee-content span {
+  font-family: 'Cinzel', serif; font-weight: 700; font-size: 1.2rem; letter-spacing: 5px; margin-right: 50px;
+}
+@keyframes scrollText { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+/* --- FOOTER (Same) --- */
+.footer-section { background: #1a0202; padding: 60px 20px 20px; text-align: center; color: var(--white); }
+.newsletter h2 { font-family: 'Cinzel', serif; color: var(--gold); }
+.input-group { margin-top: 20px; }
+.input-group input { padding: 12px; width: 300px; border: none; border-radius: 4px 0 0 4px; outline: none; }
+.input-group button {
+  padding: 12px 25px; border: none; background: var(--gold); color: var(--maroon);
+  font-weight: bold; border-radius: 0 4px 4px 0; cursor: pointer;
+}
+.footer-bottom { margin-top: 50px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 0.8rem; color: #888; }
+
+/* Animations */
+@keyframes slideUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Mobile */
+@media (max-width: 900px) {
+  .dreams-content, .testimonial-card { flex-direction: column; text-align: center; }
+  .right-layout { flex-direction: column; }
+  .testimonial-image { width: 100%; max-width: 300px; margin: 0 auto; }
+  .image-border { display: none; }
+}
+
+@media (max-width: 768px) {
+  .hero-title { font-size: 3rem; }
+  .finds-section { padding: 60px 20px; }
+  .modern-title { font-size: 2.5rem; }
+  .finds-grid { gap: 20px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+  .rect-shape { height: 400px; }
+  .dreams-section { padding: 80px 30px; }
+  .dreams-text h2 { font-size: 2.5rem; }
+  .dreams-content { gap: 40px; }
+  .you-us-section { padding: 60px 20px; }
+  .you-us-header h2 { font-size: 2.5rem; }
+  .testimonial-text h3 { font-size: 1.8rem; }
+  .quote-box { padding: 20px; }
+  .marquee-content span { font-size: 1rem; letter-spacing: 3px; }
+  .footer-section { padding: 40px 20px 20px; }
+  .newsletter h2 { font-size: 2rem; }
+  .input-group input { width: 250px; }
+}
+
+@media (max-width: 576px) {
+  .hero-title { font-size: 2.5rem; }
+  .hero-btn { padding: 10px 25px; font-size: 0.9rem; }
+  .finds-section { padding: 50px 15px; }
+  .modern-title { font-size: 2rem; }
+  .finds-grid { gap: 15px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+  .rect-shape { height: 350px; }
+  .dreams-section { padding: 60px 20px; }
+  .dreams-text h2 { font-size: 2rem; }
+  .dreams-text p { font-size: 1rem; }
+  .you-us-section { padding: 50px 15px; }
+  .you-us-header h2 { font-size: 2rem; }
+  .testimonial-text h3 { font-size: 1.5rem; }
+  .quote-box { padding: 15px; font-size: 1rem; }
+  .marquee-content span { font-size: 0.9rem; letter-spacing: 2px; }
+  .footer-section { padding: 30px 15px 15px; }
+  .newsletter h2 { font-size: 1.8rem; }
+  .input-group input { width: 200px; padding: 10px; }
+  .input-group button { padding: 10px 20px; }
+}

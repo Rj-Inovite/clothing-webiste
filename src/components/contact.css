@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;500;700&display=swap');
+
+:root {
+    --maroon: #630000;
+    --gold: #d4af37;
+    --white: #ffffff;
+    --bg: #f9f7f4;
+    --gray: #e0e0e0;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.contact-wrapper {
+    background: var(--bg);
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+}
+
+/* Luxury Watermark */
+.bg-decoration {
+    position: absolute;
+    font-family: 'Bodoni Moda', serif;
+    font-size: 40vw;
+    color: rgba(99, 0, 0, 0.03);
+    top: 5%;
+    right: -5%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* --- HERO SECTION --- */
+.contact-visual {
+    height: 60vh;
+    background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.3)), 
+                url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 1;
+}
+
+.visual-text h1 {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 4.5rem;
+    margin: 10px 0;
+    line-height: 1.1;
+}
+
+.subtitle {
+    letter-spacing: 6px;
+    font-size: 0.8rem;
+    color: var(--gold);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* --- FULL WIDTH SPLIT LAYOUT --- */
+.full-width-container {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.split-layout {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    min-height: 600px; /* Ensures substantial height */
+}
+
+/* Details Panel (Left) */
+.details-panel {
+    flex: 1;
+    background: var(--maroon);
+    padding: 80px 60px;
+    color: white;
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.inner-border {
+    border: 1px solid var(--gold);
+    padding: 50px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.details-panel h2 {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 3rem;
+    margin-bottom: 40px;
+    color: var(--gold);
+}
+
+.info-block {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.m-icon {
+    color: var(--gold);
+    font-size: 1.8rem;
+    margin-top: 5px;
+}
+
+.info-block h4 {
+    margin: 0 0 8px 0;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+
+.info-block p {
+    margin: 5px 0;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.social-tray {
+    display: flex;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.social-link {
+    color: white;
+    font-size: 1.5rem;
+    transition: 0.3s;
+}
+
+.social-link:hover {
+    color: var(--gold);
+    transform: translateY(-3px);
+}
+
+/* Map Panel (Right) */
+.map-panel {
+    flex: 1.5;
+    position: relative;
+    min-width: 400px;
+    filter: grayscale(1);
+    transition: 0.5s ease;
+}
+
+.map-panel:hover {
+    filter: grayscale(0);
+}
+
+.map-tag {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    background: white;
+    padding: 15px 30px;
+    font-family: 'Bodoni Moda', serif;
+    letter-spacing: 2px;
+    color: var(--maroon);
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* --- FEEDBACK SECTION --- */
+.feedback-section {
+    padding: 100px 20px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+.feedback-content {
+    max-width: 1000px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.1);
+    padding: 60px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+.feedback-header h2 {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 2.5rem;
+    color: #333;
+    margin: 10px 0;
+}
+
+/* Star Rating */
+.star-container {
+    margin: 30px 0;
+}
+.star-container input {
+    display: none;
+}
+.star-icon {
+    cursor: pointer;
+    transition: color 200ms;
+    margin: 0 5px;
+}
+
+.feedback-input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    resize: vertical;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+.feedback-input:focus {
+    outline: none;
+    border-color: var(--maroon);
+    background: #fffafa;
+}
+
+.submit-btn {
+    background: var(--maroon);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.submit-btn:hover {
+    background: var(--gold);
+    color: var(--maroon);
+}
+
+/* Thank You Message */
+.thank-you-message {
+    animation: fadeIn 0.8s ease;
+}
+
+.check-icon {
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+    border: 3px solid var(--gold);
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+}
+
+/* --- ANIMATIONS --- */
+.animate {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s ease-out;
+}
+
+.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+/* Responsive */
+@media (max-width: 900px) {
+    .split-layout { flex-direction: column; }
+    .details-panel { padding: 50px 30px; }
+    .visual-text h1 { font-size: 3rem; }
+    .bg-decoration { font-size: 60vw; }
+}
+
+@media (max-width: 768px) {
+    .contact-visual { height: 50vh; }
+    .visual-text h1 { font-size: 2.5rem; }
+    .subtitle { font-size: 0.7rem; }
+    .details-panel { padding: 40px 20px; min-width: auto; }
+    .inner-border { padding: 30px; }
+    .details-panel h2 { font-size: 2.5rem; }
+    .info-block { flex-direction: column; gap: 15px; text-align: center; }
+    .social-tray { justify-content: center; }
+    .feedback-section { padding: 80px 20px; }
+    .feedback-content { padding: 40px; }
+    .feedback-header h2 { font-size: 2rem; }
+    .bg-decoration { font-size: 70vw; }
+}
+
+@media (max-width: 576px) {
+    .contact-visual { height: 40vh; }
+    .visual-text h1 { font-size: 2rem; }
+    .subtitle { font-size: 0.6rem; }
+    .details-panel { padding: 30px 15px; }
+    .inner-border { padding: 20px; }
+    .details-panel h2 { font-size: 2rem; }
+    .info-block h4 { font-size: 0.8rem; }
+    .info-block p { font-size: 0.9rem; }
+    .social-link { font-size: 1.2rem; }
+    .map-tag { bottom: 20px; left: 20px; padding: 10px 20px; font-size: 0.8rem; }
+    .feedback-section { padding: 60px 15px; }
+    .feedback-content { padding: 30px; max-width: 100%; }
+    .feedback-header h2 { font-size: 1.8rem; }
+    .star-container { margin: 20px 0; }
+    .feedback-input { padding: 12px; }
+    .submit-btn { padding: 12px 30px; font-size: 0.9rem; }
+    .bg-decoration { font-size: 80vw; }
+}

@@ -1,0 +1,606 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+
+:root {
+    /* Royal Theme Palette */
+    --bg-royal: #2b0404;       /* Deepest Dark Maroon (Page Background) */
+    --maroon-vibrant: #800000; /* Rich Red/Maroon (Highlights/Text) */
+    --sidebar-bg: #3d0606;     
+    --card-bg: #ffffff;        
+    --gold-primary: #d4af37;   
+    --gold-light: #f3e5ab;     /* Creme Color */
+    --text-on-dark: #f0f0f0;   
+}
+
+body {
+    background-color: var(--bg-royal);
+    color: var(--text-on-dark);
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* --- Opening Animation --- */
+.opening-animation {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: radial-gradient(circle, #3d0606 0%, #1a0000 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.logo-box {
+    text-align: center;
+    border: 2px solid var(--gold-primary);
+    padding: 40px 60px;
+    animation: scaleIn 1s ease-out;
+}
+
+.brand-name {
+    font-family: 'Cinzel', serif;
+    font-size: 5rem;
+    color: var(--gold-primary);
+    margin: 0;
+    letter-spacing: 15px;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.brand-line {
+    width: 100px;
+    height: 2px;
+    background: var(--gold-primary);
+    margin: 15px auto;
+}
+
+.tagline {
+    color: var(--gold-light);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+@keyframes scaleIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* --- Main Layout --- */
+.shop-wrapper {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* --- HEADER & TYPING ANIMATION --- */
+.page-header {
+    text-align: center;
+    background: var(--gold-light); /* Creme background */
+    padding: 70px 0;
+    margin-bottom: 40px;
+    border-bottom: 4px solid var(--gold-primary);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Container to hold the typing text centered */
+.typing-container {
+    display: inline-block;
+}
+
+.typing-text {
+    font-family: 'Cinzel', serif;
+    color: var(--maroon-vibrant);
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin: 0;
+    
+    /* Animation Properties */
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid var(--maroon-vibrant); /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    animation: 
+        typing 3.5s steps(40, end),
+        blink-caret .75s step-end infinite;
+    max-width: 100%;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--maroon-vibrant); }
+}
+
+.header-content p {
+    font-family: 'Cinzel', serif;
+    color: var(--maroon-vibrant);
+    font-size: 1.2rem;
+    margin-top: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 3.5s; /* Wait for typing to finish */
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* --- Sidebar & Filters --- */
+.shop-container {
+    display: flex;
+    gap: 40px;
+    padding: 0 40px 40px 40px;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.sidebar {
+    width: 300px;
+    flex-shrink: 0;
+}
+
+.sidebar-sticky {
+    position: sticky;
+    top: 30px;
+    background: var(--sidebar-bg);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.sidebar-title {
+    font-family: 'Cinzel', serif;
+    color: var(--gold-primary);
+    font-size: 1.4rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+.reset-btn {
+    background: transparent;
+    border: 1px solid var(--gold-primary);
+    color: var(--gold-primary);
+    padding: 5px 15px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.reset-btn:hover {
+    background: var(--gold-primary);
+    color: var(--bg-royal);
+}
+
+.category-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* --- Dark Maroon Filter Items --- */
+.category-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    background: var(--maroon-vibrant); 
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.category-item:hover {
+    background: #900000;
+    border-color: var(--gold-primary);
+    transform: translateX(5px);
+}
+
+.category-item.active {
+    background-color: #a00000;
+    border: 2px solid var(--gold-primary);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+.cat-thumb {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--gold-primary);
+    margin-right: 15px;
+}
+
+.cat-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+.cat-name {
+    font-size: 1rem;
+    color: var(--gold-light);
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.category-item.active .cat-name {
+    color: var(--gold-primary);
+    font-weight: 700;
+}
+
+.price-toggles { display: flex; gap: 10px; margin-top: 20px; }
+.price-toggles button {
+    flex: 1;
+    background: transparent;
+    border: 1px solid var(--gold-primary);
+    color: var(--gold-light);
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.price-toggles button:hover {
+    background: var(--gold-primary);
+    color: var(--bg-royal);
+}
+
+/* --- Product Grid --- */
+.product-area { flex: 1; }
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: floatUp 0.8s ease forwards;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transition: transform 0.4s ease;
+}
+
+@keyframes floatUp { to { opacity: 1; transform: translateY(0); } }
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    z-index: 2;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    border: 1px solid var(--gold-primary);
+}
+
+.card-image {
+    height: 300px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card:hover .card-image img { transform: scale(1.15); }
+
+.tag-new {
+    position: absolute;
+    top: 15px; left: 15px;
+    background: var(--bg-royal);
+    color: var(--gold-primary);
+    padding: 5px 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 2;
+}
+
+.card-actions {
+    position: absolute;
+    bottom: -60px; left: 0;
+    width: 100%;
+    display: flex;
+    transition: bottom 0.3s ease;
+}
+
+.card:hover .card-actions { bottom: 0; }
+
+.card-actions button {
+    flex: 1;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.card-actions button:first-child {
+    background: var(--bg-royal);
+    color: var(--gold-primary);
+}
+
+.card-actions button:first-child:hover {
+    background: var(--maroon-vibrant); 
+}
+
+.card-actions button:last-child {
+    background: var(--gold-primary);
+    color: var(--bg-royal);
+}
+
+.card-details { padding: 20px; }
+.card-details h3 {
+    margin: 0 0 10px;
+    font-size: 1.1rem;
+    color: #333;
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.amount {
+    color: var(--maroon-vibrant);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.size-list span {
+    font-size: 0.7rem;
+    color: #888;
+    margin-left: 4px;
+    border: 1px solid #ddd;
+    padding: 2px 5px;
+}
+
+/* --- Toast Notification --- */
+.toast-notification {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--gold-primary);
+    color: var(--bg-royal);
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    z-index: 5000;
+    animation: slideInToast 0.5s ease-out;
+}
+
+.checkmark {
+    background: var(--bg-royal);
+    color: var(--gold-primary);
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    font-size: 0.8rem;
+}
+
+@keyframes slideInToast {
+    from { transform: translateY(100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .shop-container {
+    max-width: 1400px;
+    padding: 0 30px 40px;
+  }
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
+  }
+  .card-image {
+    height: 350px;
+  }
+  .brand-name {
+    font-size: 4rem;
+  }
+  .typing-text {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .shop-container {
+    max-width: 1200px;
+    padding: 0 25px 40px;
+  }
+  .sidebar {
+    width: 250px;
+  }
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  .card-image {
+    height: 320px;
+  }
+  .page-header {
+    padding: 50px 0;
+  }
+  .brand-name {
+    font-size: 3.5rem;
+  }
+  .typing-text {
+    font-size: 2.5rem;
+  }
+  .header-content p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .shop-container {
+    flex-direction: column;
+    padding: 0 20px 40px;
+  }
+  .sidebar {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .sidebar-sticky {
+    position: static;
+  }
+  .category-list {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    gap: 10px;
+  }
+  .category-item {
+    flex-shrink: 0;
+    width: 160px;
+    min-width: 160px;
+  }
+  .price-toggles {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .price-toggles button {
+    padding: 8px;
+    font-size: 0.85rem;
+  }
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  .card-image {
+    height: 280px;
+  }
+  .page-header {
+    padding: 40px 20px;
+  }
+  .brand-name {
+    font-size: 3rem;
+    letter-spacing: 10px;
+  }
+  .typing-text {
+    font-size: 2rem;
+    letter-spacing: 3px;
+  }
+  .header-content p {
+    font-size: 0.9rem;
+  }
+  .card-details {
+    padding: 15px;
+  }
+  .card-details h3 {
+    font-size: 1rem;
+  }
+  .amount {
+    font-size: 1.1rem;
+  }
+  .toast-notification {
+    width: 90%;
+    left: 5%;
+    bottom: 20px;
+    padding: 12px 20px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .shop-container {
+    padding: 0 15px 30px;
+  }
+  .sidebar-sticky {
+    padding: 20px;
+  }
+  .sidebar-title {
+    font-size: 1.2rem;
+  }
+  .category-item {
+    width: 140px;
+    min-width: 140px;
+    padding: 8px;
+  }
+  .cat-thumb {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+  .cat-name {
+    font-size: 0.9rem;
+  }
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+  }
+  .card-image {
+    height: 240px;
+  }
+  .page-header {
+    padding: 30px 15px;
+  }
+  .brand-name {
+    font-size: 2.5rem;
+    letter-spacing: 8px;
+  }
+  .typing-text {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+  }
+  .header-content p {
+    font-size: 0.8rem;
+  }
+  .card-details {
+    padding: 12px;
+  }
+  .card-details h3 {
+    font-size: 0.95rem;
+  }
+  .amount {
+    font-size: 1rem;
+  }
+  .card-actions button {
+    padding: 12px;
+    font-size: 0.8rem;
+  }
+  .toast-notification {
+    width: 95%;
+    left: 2.5%;
+    bottom: 15px;
+    padding: 10px 15px;
+  }
+  .checkmark {
+    width: 18px;
+    height: 18px;
+    font-size: 0.7rem;
+  }
+}
